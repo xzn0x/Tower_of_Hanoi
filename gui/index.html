@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Hanoi - Interactive GUI</title>
+    <!-- We use the Outfit font for a modern minimal look -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Tower of Hanoi</h1>
+            <p>Move all rings from the first pillar to the last.</p>
+        </header>
+
+        <div class="sample-tower glass-panel" title="Target Order">
+            <h3>Target</h3>
+            <div class="mini-pillar-container">
+                <div class="pillar"></div>
+                <div class="rings-container" id="sample-rings"></div>
+                <div class="pillar-base"></div>
+            </div>
+        </div>
+
+        <div class="controls glass-panel">
+            <div class="control-group">
+                <label for="ring-count">Number of Rings:</label>
+                <input type="number" id="ring-count" min="3" max="10" value="4">
+                <button id="reset-btn">Restart Game</button>
+                <button id="hint-btn" class="secondary-btn">Hint</button>
+                <button id="auto-solve-btn" class="secondary-btn">Auto-Solve</button>
+            </div>
+            <div class="stats">
+                <p>Time: <span id="timer-display">00:00</span></p>
+                <p>Moves: <span id="move-count">0</span></p>
+                <p>Minimum: <span id="min-moves">15</span></p>
+            </div>
+        </div>
+
+        <div class="game-board glass-panel">
+            <!-- Pillar 1 -->
+            <div class="pillar-container" data-index="0">
+                <div class="pillar"></div>
+                <div class="rings-container" id="pillar-0"></div>
+                <div class="pillar-base"></div>
+            </div>
+            
+            <!-- Pillar 2 -->
+            <div class="pillar-container" data-index="1">
+                <div class="pillar"></div>
+                <div class="rings-container" id="pillar-1"></div>
+                <div class="pillar-base"></div>
+            </div>
+            
+            <!-- Pillar 3 -->
+            <div class="pillar-container" data-index="2">
+                <div class="pillar"></div>
+                <div class="rings-container" id="pillar-2"></div>
+                <div class="pillar-base"></div>
+            </div>
+        </div>
+
+        <div class="history-panel glass-panel">
+            <h2>Recent Games</h2>
+            <div class="history-list" id="history-list">
+                <p class="empty-history">No games played yet.</p>
+            </div>
+        </div>
+
+        <div id="win-modal" class="modal hidden">
+            <div class="modal-content glass-panel">
+                <h2>You Won! 🎉</h2>
+                <p>Time: <span id="final-time">00:00</span></p>
+                <p>Completed in <span id="final-moves">0</span> moves.</p>
+                <button id="play-again-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
